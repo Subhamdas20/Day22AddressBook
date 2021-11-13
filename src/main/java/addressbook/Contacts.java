@@ -72,7 +72,7 @@ public class Contacts {
     }
 
 
-    public Contacts(String firstName, String lastName, String address, String city, String state, String emailId, int zipCode, int phoneNumber) {
+    public Contacts(String firstName, String lastName, String address, String city, String state, String emailId, int zipCode, long phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
