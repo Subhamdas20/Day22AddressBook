@@ -8,10 +8,16 @@ import java.util.stream.Stream;
 
 public class RunAddressBook {
     static HashMap<String, AddressBook> addressBooks = new HashMap<>();
-    private static void searchPerson(){
+
+    /**
+     * searchPerson method is used to search person across multiple addressBook
+     *
+     * @param first_Name is used to search across addressBook
+     */
+    private static void searchPerson(String first_Name) {
         for (Map.Entry<String, AddressBook> entry : addressBooks.entrySet()) {
             System.out.println(entry.getKey() + "/" + entry.getValue());
-            Stream<Contacts> search =entry.getValue().contact_Details.stream().filter(i->i.getFirstName().equals("subham"));
+            Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getFirstName().equals(first_Name));
             search.forEach(str -> System.out.println(str.toString()));
         }
     }
@@ -26,7 +32,7 @@ public class RunAddressBook {
         addressBooks.put("AddressBook2", book2);
         addressBooks.put("AddressBook3", book3);
 
-                System.out.println("================================");
+        System.out.println("================================");
         System.out.println("Welcome to Address Book");
         System.out.println("================================");
         int i = 1;
@@ -90,8 +96,10 @@ public class RunAddressBook {
                         book3.showContacts();
                         break;
                     }
-                case 5:searchPerson();
-                break;
+                case 5:
+                    System.out.println("Enter the first name to search");
+                    searchPerson(sc.next());
+                    break;
                 default:
                     System.out.println("Invalid Input");
                     break;
