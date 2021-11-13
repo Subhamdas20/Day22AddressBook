@@ -6,7 +6,6 @@ public class Contacts {
     private int zipCode;
     private long phoneNumber;
 
-
     public String getFirstName() {
         return firstName;
     }
