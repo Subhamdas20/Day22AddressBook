@@ -61,6 +61,7 @@ public class RunAddressBook {
                 System.out.println(entry.getKey());
                 Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getCity().equals(city));
                 System.out.println("Number of contacts in " + city + " are : " + search.count());
+                System.out.println("===========================================");
             }
         } else if (input == 2) {
             System.out.println("Enter state name to search number of  contacts");
@@ -69,6 +70,7 @@ public class RunAddressBook {
                 System.out.println(entry.getKey());
                 Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getState().equals(state));
                 System.out.println("Number of contacts in " + state + " are : " + search.count());
+                System.out.println("===========================================");
             }
         } else System.out.println("Enter 1 or 2 ");
     }
