@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 public class RunAddressBook {
     static HashMap<String, AddressBook> addressBooks = new HashMap<>();
     static Scanner sc = new Scanner(System.in);
+
     /**
      * searchPerson method is used to search person across multiple addressBook
      *
@@ -16,36 +17,35 @@ public class RunAddressBook {
      */
     private static void searchPerson(String first_Name) {
         for (Map.Entry<String, AddressBook> entry : addressBooks.entrySet()) {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
+            System.out.println(entry.getKey());
             Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getFirstName().equals(first_Name));
             search.forEach(str -> System.out.println(str.toString()));
         }
     }
+
     /*
-    * used to search by city or state
-    * */
-    private static void searchByCityOrState(){
+     * used to search by city or state
+     * */
+    private static void searchByCityOrState() {
         System.out.println("Enter 1 for searching by city \nEnter 2 for searching by state");
         int input = sc.nextInt();
-        if(input==1) {
+        if (input == 1) {
             System.out.println("Enter city name to search contacts");
             String city = sc.next();
             for (Map.Entry<String, AddressBook> entry : addressBooks.entrySet()) {
-                System.out.println(entry.getKey() + "/" + entry.getValue());
+                System.out.println(entry.getKey());
                 Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getCity().equals(city));
                 search.forEach(str -> System.out.println(str.toString()));
             }
-        }
-        else if(input==2) {
+        } else if (input == 2) {
             System.out.println("Enter state name to search contacts");
             String state = sc.next();
             for (Map.Entry<String, AddressBook> entry : addressBooks.entrySet()) {
-                System.out.println(entry.getKey() + "/" + entry.getValue());
+                System.out.println(entry.getKey());
                 Stream<Contacts> search = entry.getValue().contact_Details.stream().filter(i -> i.getState().equals(state));
                 search.forEach(str -> System.out.println(str.toString()));
             }
-        }
-        else System.out.println("Enter 1 or 2 ");
+        } else System.out.println("Enter 1 or 2 ");
     }
 
 
@@ -128,7 +128,7 @@ public class RunAddressBook {
                     searchPerson(sc.next());
                     break;
                 case 6:
-                   searchByCityOrState();
+                    searchByCityOrState();
                     break;
 
                 default:
