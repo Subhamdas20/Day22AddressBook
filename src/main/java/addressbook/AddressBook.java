@@ -12,15 +12,14 @@ public class AddressBook {
      * used to add new contact
      */
     public void addContacts() {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of contacts you want to save");
-        int numberOfContacts = sc.nextInt();
-        for (int i = 0; i < numberOfContacts; i++) {
-            System.out.println("Enter the details of contact number " + (i + 1));
-            System.out.println("Enter first name");
-            String firstName = sc.next();
-//            if (contact_Details.isEmpty() == true) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the number of contacts you want to save");
+            int numberOfContacts = sc.nextInt();
+            for (int i = 0; i < numberOfContacts; i++) {
+                System.out.println("Enter the details of contact number " + (i + 1));
+                System.out.println("Enter first name");
+                String firstName = sc.next();
                 System.out.println("Last name");
                 String lastName = sc.next();
                 System.out.println("Enter address");
@@ -39,35 +38,11 @@ public class AddressBook {
                 System.out.println("==================================");
                 Contacts details = new Contacts(firstName, lastName, address, city, state, emailId, zipCode, phoneNumber);
                 contact_Details.add(details);
-//            } else {
-//                for (Contacts contact : contact_Details) {
-//                    if (!firstName.equalsIgnoreCase(contact.getFirstName())) {
-////                        System.out.println("Duplicate entry");
-////                        addContacts();
-////                    } else {
-//                        System.out.println("Last name");
-//                        String lastName = sc.next();
-//                        System.out.println("Enter address");
-//                        String address = sc.next();
-//                        System.out.println("Enter city ");
-//                        String city = sc.next();
-//                        System.out.println("Enter state ");
-//                        String state = sc.next();
-//                        System.out.println("Enter EmailId ");
-//                        String emailId = sc.next();
-//                        System.out.println("Enter zip ");
-//                        int zipCode = sc.nextInt();
-//                        System.out.println("Enter phone number ");
-//                        long phoneNumber = sc.nextInt();
-//                        System.out.println("Contact number " + (i + 1) + " saved");
-//                        System.out.println("==================================");
-//                        Contacts details = new Contacts(firstName, lastName, address, city, state, emailId, zipCode, phoneNumber);
-//                        contact_Details.add(details);
-//                    }
-////                    else System.out.println("Duplicate entry");
-//                }
-//
-//            }
+            }
+
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

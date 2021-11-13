@@ -14,7 +14,6 @@ public class RunAddressBook {
             Stream<Contacts> search =entry.getValue().contact_Details.stream().filter(i->i.getFirstName().equals("subham"));
             search.forEach(str -> System.out.println(str.toString()));
         }
-
     }
 
 
